@@ -70,6 +70,7 @@ def run(*args):
             msg += "登录成功！,"
         else:
             print("登录失败！请检查密码是否正确！"+str(object['code']))
+            pusher("登录失败！请检查密码是否正确！"+str(object['code']))
             return "登录失败！请检查密码是否正确！"
 
         res=s.post(url=url2,data=protect('{"type":0}'),headers=headers)
@@ -82,6 +83,7 @@ def run(*args):
             if object['code']==200:
                 print("签到成功，经验+"+str(object['point']))
                 msg += "签到成功,"
+                pusher("签到成功，经验+"+str(object['point']))
             else:
                 print("重复签到")
                 msg += "重复签到,"
@@ -127,6 +129,7 @@ def run(*args):
             text = "刷单成功！共"+str(count)+"首"
             print(text)
             msg += text
+            pusher(text)
         else:
             text = "发生错误："+str(object['code'])+object['message']
             print(text)
