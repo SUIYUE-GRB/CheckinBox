@@ -35,8 +35,10 @@ def main(username:str, password:str):
         netdiskBonus = response.json()['netdiskBonus']
         if(response.json()['isSign'] == "false"):
             msg += f"未签到，签到获得  {netdiskBonus}  M空间\n"
+             pusher(f"未签到，签到获得  {netdiskBonus}  M空间\n")
         else:
             msg += f"已经签到过了，签到获得  {netdiskBonus}  M空间,"
+            pusher(f"已经签到过了，签到获得  {netdiskBonus}  M空间,")
 
         #第一次抽奖
         response = s.get(url,headers=headers,timeout=20)
@@ -54,6 +56,7 @@ def main(username:str, password:str):
             except:
                 description = "未知"
             msg += f"抽奖获得  {description}  ,"
+            pusher(f"抽奖获得  {description}  ,")
 
         #第二次抽奖
         response = s.get(url2,headers=headers,timeout=20)
@@ -71,6 +74,7 @@ def main(username:str, password:str):
             except:
                 description = "未知"
             msg += f"抽奖获得  {description}  ,"
+             pusher(f"抽奖获得  {description}  ,")
     except Exception as e:
         pusher("天翼云签到出错", repr(e))
         msg += "天翼云签到出错："+repr(e)
