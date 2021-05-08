@@ -35,10 +35,10 @@ def main(*args):
             pusher("52pj签到成功")
         elif "不是进行中的任务" in c:
             msg += "不是进行中的任务"
-            pusher("不是进行中的任务")
+            # pusher("不是进行中的任务")
         else:
             print(c)
-            pusher(c)
+            # pusher(c)
     except:
         msg += "52pj出错,大概率是触发52pj安全防护，访问出错。自行修改脚本运行时间和次数，总有能访问到的时间"
         msg += "\n如果错误需要推送的话，自行去掉代码内的注释"
