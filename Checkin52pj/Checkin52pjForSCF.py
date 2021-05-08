@@ -28,7 +28,7 @@ def main(*args):
         c = b.find('div',id='messagetext').find('p').text
 
         if "您需要先登录才能继续本操作"  in c:
-            pusher("52pojie  Cookie过期", str(c))
+            pusher("52pojie  Cookie过期",c)
             msg += "cookie_52pj失效，需重新获取"
         elif "恭喜"  in c:
             msg += "52pj签到成功"
@@ -40,7 +40,7 @@ def main(*args):
     except:
         msg += "52pj出错,大概率是触发52pj安全防护，访问出错。自行修改脚本运行时间和次数，总有能访问到的时间"
         msg += "\n如果错误需要推送的话，自行去掉代码内的注释"
-        pusher("52pojie 访问出错", str(b))
+        pusher("52pojie 访问出错",b)
     return msg + "\n"
 
 
