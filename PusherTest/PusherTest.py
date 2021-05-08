@@ -11,12 +11,11 @@ except:
 def main(*arg):
     try:
         msg = "这是一条Github Actions测试推送信息"
-        testmsg = pusher("测试1")
+        testmsg = pusher("测试推送消息",msg)
         print(testmsg)
-        pusher(testmsg)
     except Exception as e:
         print('repr(e):', repr(e))
-        #pusher("推送出错",e)
+        pusher("推送出错",msg)
 
 if __name__ == "__main__":
     print("----------开始执行测试推送----------")
