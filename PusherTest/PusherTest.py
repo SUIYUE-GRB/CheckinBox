@@ -11,8 +11,9 @@ except:
 def main(*arg):
     try:
         msg = "这是一条Github Actions测试推送信息"
-        testmsg = pusher("测试",testmsg)
+        testmsg = pusher("测试1")
         print(testmsg)
+        pusher(testmsg)
     except Exception as e:
         print('repr(e):', repr(e))
         #pusher("推送出错",e)
