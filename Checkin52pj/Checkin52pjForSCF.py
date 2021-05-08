@@ -32,6 +32,7 @@ def main(*args):
             msg += "cookie_52pj失效，需重新获取"
         elif "恭喜"  in c:
             msg += "52pj签到成功"
+            pusher("52pj第"{i+1}"个账户签到成功")
         elif "不是进行中的任务" in c:
             msg += "不是进行中的任务"
         else:
@@ -39,7 +40,7 @@ def main(*args):
     except:
         msg += "52pj出错,大概率是触发52pj安全防护，访问出错。自行修改脚本运行时间和次数，总有能访问到的时间"
         msg += "\n如果错误需要推送的话，自行去掉代码内的注释"
-        pusher("52pojie  访问出错", msg)
+        pusher("52pojie第"{i+1}" 个账户 访问出错", msg)
     return msg + "\n"
 
 
@@ -84,7 +85,7 @@ def pjRate(*args):
                 msg += re.findall("errorhandle_rate\('.*'", r.text)[0][18:-1]
                 msg += "\n"
     except:
-        pusher("52pojie  免费评分失败")
+        pusher("52pojie第"{i+1}" 个账户 免费评分失败")
         pass
     return msg + "\n"
 
@@ -112,3 +113,5 @@ if __name__ == "__main__":
         print("----------52pojie开始尝试签到----------")
         pjCheckin()
         print("----------52pojie签到执行完毕----------")
+
+        
